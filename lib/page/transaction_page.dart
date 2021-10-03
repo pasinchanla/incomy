@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import '../boxes.dart';
-import '../constants/colors.dart';
 import '../constants/date.dart';
 import '../model/transaction.dart';
-import '../page/stats_page.dart';
 import '../widget/transaction_dialog.dart';
 import 'package:intl/intl.dart';
 
@@ -18,17 +16,6 @@ class IncomyTransactionPage extends StatefulWidget {
 }
 
 class _IncomyTransactionPageState extends State<IncomyTransactionPage> {
-  int _selectedIndex = 0;
-  final List<Widget> _pageIndex = [
-    const IncomyTransactionPage(),
-    const IncomyStatsPage()
-  ];
-
-  void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
-  }
 
   String _dateTime() {
     DateFormat _dateFormatter = DateFormat.yMMMd('en_US');
