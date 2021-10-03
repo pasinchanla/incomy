@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 const Color primaryColor = Color.fromRGBO(229, 90, 97, 1.0);
 const Color secondaryColor = Color.fromRGBO(255, 197, 71, 1.0);
 
-Map<int, Color> primaryMap = {
+const Map<int, Color> primaryMap = {
   50: Color.fromRGBO(229, 90, 97, 0.1),
   100: Color.fromRGBO(229, 90, 97, 0.2),
   200: Color.fromRGBO(229, 90, 97, 0.3),
@@ -19,7 +19,7 @@ Map<int, Color> primaryMap = {
 
 MaterialColor primaryMaterial = MaterialColor(primaryColor.value, primaryMap);
 
-Map<int, Color> secondaryMap = {
+const Map<int, Color> secondaryMap = {
   50: Color.fromRGBO(255, 197, 71, 0.1),
   100: Color.fromRGBO(255, 197, 71, 0.2),
   200: Color.fromRGBO(255, 197, 71, 0.3),
