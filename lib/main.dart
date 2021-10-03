@@ -9,7 +9,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 import '../model/transaction.dart';
 import '../page/stats_page.dart';
 import '../page/transaction_page.dart';
-import '../page/root.dart';
+import 'page/root_page.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,13 +29,13 @@ class IncomyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       theme: ThemeData(),
-      initialRoute: '/transactions',
-      routes: {
-        // IncomyRootPage.route: (context) => const IncomyRootPage(),
-        IncomyTransactionPage.route: (context) => const IncomyTransactionPage(),
-        IncomyStatsPage.route: (context) => const IncomyStatsPage(),
-      },
-      // home: IncomyRootPage(),
+      // initialRoute: '/transactions',
+      // routes: {
+      //   IncomyRootPage.route: (context) => const IncomyRootPage(),
+      //   IncomyTransactionPage.route: (context) => const IncomyTransactionPage(),
+      //   IncomyStatsPage.route: (context) => const IncomyStatsPage(),
+      // },
+      home: IncomyRootPage(),
       debugShowCheckedModeBanner: false,
     );
   }

@@ -19,7 +19,10 @@ class IncomyTransactionPage extends StatefulWidget {
 
 class _IncomyTransactionPageState extends State<IncomyTransactionPage> {
   int _selectedIndex = 0;
-  final List<Widget> _pageIndex = [const IncomyTransactionPage(), const IncomyStatsPage()];
+  final List<Widget> _pageIndex = [
+    const IncomyTransactionPage(),
+    const IncomyStatsPage()
+  ];
 
   void _onItemTapped(int index) {
     setState(() {
@@ -33,54 +36,18 @@ class _IncomyTransactionPageState extends State<IncomyTransactionPage> {
   }
 
   @override
-  void dispose() {
-    Hive.close();
-
-    super.dispose();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // body: _pageIndex[_selectedIndex],
-      body: ValueListenableBuilder<Box<Transaction>>(
+      return ValueListenableBuilder<Box<Transaction>>(
         valueListenable: Boxes.getTransactions().listenable(),
         builder: (context, box, _) {
           final transactions = box.values.toList().cast<Transaction>();
 
           return buildContent(transactions);
         },
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: 'Transactions',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.auto_graph),
-            label: 'Stats',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: secondaryColor,
-        onTap: _onItemTapped,
-      ),
-      floatingActionButton: FloatingActionButton(
-        backgroundColor: primaryColor,
-        child: const Icon(Icons.add),
-        onPressed: () => showDialog(
-          context: context,
-          builder: (context) => const TransactionDialog(
-            onClickedDone: addTransaction,
-          ),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-    );
+      );
   }
 
-  Widget buildMOTD(){
+  Widget buildMOTD() {
     return Container(
       decoration: BoxDecoration(
         color: Colors.white,
@@ -153,7 +120,7 @@ class _IncomyTransactionPageState extends State<IncomyTransactionPage> {
           const SizedBox(
             child: Text(
               'No expenses yet!',
-            style: TextStyle(fontSize: 24),
+              style: TextStyle(fontSize: 24),
             ),
           ),
         ],
